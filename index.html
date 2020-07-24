@@ -52,7 +52,7 @@ function getStudentNum() {
 	let ln=document.getElementById("ln").value;
 	var options = {query: { 'FirstName': fn,'LastName':ln }};
 	Sheet2API.read(url, options).then(function(result){
-
+		console.log(result);
 		try {
 		  let obj = result[0];
 		  document.getElementById("studentnum").innerHTML=obj.IdNumber;
