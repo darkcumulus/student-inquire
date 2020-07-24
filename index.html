@@ -42,17 +42,22 @@
 
 
 
-<script src="//sheet2api.com/v1/api.js"></script>
+<script src="../js/api.js"></script>
 <script>
-var url = 'https://sheet2api.com/v1/zYlpzdUTDiDZ/student-numbers';
-
-
+//change this to your own worksheet (must be public)
+var url = 'https://sheet2api.com/v1/zYlpzdUTDiDZ/student-id';
 function getStudentNum() {
-	let fn=document.getElementById("fn").value.toLowerCase();
-	let ln=document.getElementById("ln").value.toLowerCase();
+	let fn=document.getElementById("fn").value;
+	let ln=document.getElementById("ln").value;
+	fn = fn.trim().toLowerCase();
+	ln = ln.trim().toLowerCase();
+
 	var options = {query: { 'FirstName': fn,'LastName':ln }};
 	Sheet2API.read(url, options).then(function(result){
-		console.log(result);
+		if(result.length==0){
+			document.getElementById("studentnum").innerHTML = "Name not found";
+			return;
+		}
 		try {
 		  let obj = result[0];
 		  document.getElementById("studentnum").innerHTML=obj.IdNumber;
