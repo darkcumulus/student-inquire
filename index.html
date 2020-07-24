@@ -48,8 +48,8 @@ var url = 'https://sheet2api.com/v1/zYlpzdUTDiDZ/student-numbers';
 
 
 function getStudentNum() {
-	let fn=document.getElementById("fn").value;
-	let ln=document.getElementById("ln").value;
+	let fn=document.getElementById("fn").value.toLowerCase();
+	let ln=document.getElementById("ln").value.toLowerCase();
 	var options = {query: { 'FirstName': fn,'LastName':ln }};
 	Sheet2API.read(url, options).then(function(result){
 		console.log(result);
