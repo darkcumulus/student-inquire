@@ -62,7 +62,7 @@ function getStudentNum() {
       document.getElementById("studentnum").innerHTML=response["student_number"];
     },
     error: function(xhr) {
-      alert("ERROR");
+      console.log(xhr);
     }
   });
 }
