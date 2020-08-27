@@ -18,7 +18,7 @@
     <section class="hero is-fullheight">
       <div class="hero-body has-text-centered">
         <div class="login">
-          <!-- <img src="https://logoipsum.com/logo/logo-1.svg" width="325px" />           -->
+          <img src="./css/140px.png" width="140px" />          
           <h1 id="studentnum" class="title is-1">Get Email</h1>
           <form>
             <div class="field">
@@ -60,6 +60,7 @@ function getStudentNum() {
       ln: last_name
     },
     success: function(response) {
+      console.log(response);
       document.getElementById("studentnum").innerHTML=response["email"];
     },
     error: function(xhr) {
