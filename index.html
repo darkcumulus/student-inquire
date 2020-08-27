@@ -61,10 +61,15 @@ function getStudentNum() {
     },
     success: function(response) {
       //console.log(response["results"][0].email);
-      document.getElementById("studentnum").innerHTML=response["results"][0].email;
+      if( typeof response["student_number"] === "undefined" ){
+        document.getElementById("studentnum").innerHTML="Record not found.";  
+      }else{
+        document.getElementById("studentnum").innerHTML=response["results"][0].email;
+      }
     },
     error: function(xhr) {
       console.log(xhr);
+      document.getElementById("studentnum").innerHTML="ERROR";
     }
   });
 }
