@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Bozoslivehere</title>
+    <title>PSU</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.2/css/bulma.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/neumorphic-login.css">
@@ -19,7 +19,7 @@
       <div class="hero-body has-text-centered">
         <div class="login">
           <!-- <img src="https://logoipsum.com/logo/logo-1.svg" width="325px" />           -->
-          <h1 id="studentnum" class="title is-1">Get Student No.</h1>
+          <h1 id="studentnum" class="title is-1">Get Email</h1>
           <form>
             <div class="field">
               <div class="control">
@@ -33,7 +33,7 @@
             </div>
             <br />
             <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="button" onclick="getStudentNum()" >
-              Show Number
+              Show Email
             </button>
           </form>
           <br>
@@ -53,14 +53,14 @@ function getStudentNum() {
 	last_name = ln.trim().toLowerCase();	
 
   $.ajax({
-    url: "//estudyante.c1.biz/api/student/get_student_num.php",
+    url: "https://psudb.pythonanywhere.com/students/",
     type: "get", //send it through get method
     data: { 
       fn: first_name, 
       ln: last_name
     },
     success: function(response) {
-      document.getElementById("studentnum").innerHTML=response["student_number"];
+      document.getElementById("studentnum").innerHTML=response["email"];
     },
     error: function(xhr) {
       console.log(xhr);
