@@ -60,8 +60,8 @@ function getStudentNum() {
       ln: last_name
     },
     success: function(response) {
-      //console.log(response["results"][0].email);
-      if( typeof response["email"] === "undefined" ){
+      console.log(response["results"][0].email);
+      if( typeof response["results"][0].email === "undefined" ){
         document.getElementById("email").innerHTML="Record not found.";  
       }else{
         document.getElementById("email").innerHTML=response["results"][0].email;
