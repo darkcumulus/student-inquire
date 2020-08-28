@@ -19,7 +19,7 @@
       <div class="hero-body has-text-centered">
         <div class="login">
           <img src="./css/140px.png" width="140px" />          
-          <h1 id="studentnum" class="title is-4">Email View v1.0</h1>
+          <h1 id="email" class="title is-4">Email View v1.0</h1>
           <form>
             <div class="field">
               <div class="control">
@@ -61,15 +61,15 @@ function getStudentNum() {
     },
     success: function(response) {
       //console.log(response["results"][0].email);
-      if( typeof response["student_number"] === "undefined" ){
-        document.getElementById("studentnum").innerHTML="Record not found.";  
+      if( typeof response["email"] === "undefined" ){
+        document.getElementById("email").innerHTML="Record not found.";  
       }else{
-        document.getElementById("studentnum").innerHTML=response["results"][0].email;
+        document.getElementById("email").innerHTML=response["results"][0].email;
       }
     },
     error: function(xhr) {
       console.log(xhr);
-      document.getElementById("studentnum").innerHTML="ERROR";
+      document.getElementById("email").innerHTML="ERROR";
     }
   });
 }
